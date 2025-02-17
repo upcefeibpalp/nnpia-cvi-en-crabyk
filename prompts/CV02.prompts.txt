@@ -1,0 +1,43 @@
+#01
+Přidej do tohoto Spring Boot projektu závislost 'Spring Boot DevTools'
+
+Aktuální build.gradle:
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+}
+
+#02
+K čemu slouží závislost Spring Boot DevTools? Jaká je její největší výhoda?
+
+#03
+Uprav tento 'UserController':
+@RestController
+public class UserController {
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/user")
+    public String findUser() {
+        return userService.findUser();
+    }
+
+    @GetMapping("/users")
+    public String findUsers() {
+        return userService.findUsers().toString();
+    }
+}
+
+Uprav endpoint /user aby přijal ID uživatele jako Query parameter (/user?id=1) a vrátí odpovídající instanci třídy User.
+
+#04
+Upravte endpoint /user aby přijal ID uživatele jako Path parameter (/user/{id}) a vrátí odpovídající instanci třídy User
+
+#05
+Přepiš adresu endpointu /users vracející všechny uživatele na /user
